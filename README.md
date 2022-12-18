@@ -1,15 +1,15 @@
 # Power Automate code snippet repository
-This repository contains snippets of code that I use frequently in Power Automate actions. The code can be copied and then be transformed into Power Automate actions by just pressing ctrl+V while in the "From clipboard" section of the "New step" dialog.
+This repository contains snippets of code (sorry, JSON) that I use frequently in Power Automate actions. The code can be copied and then be transformed into Power Automate actions by just pressing ctrl+V while in the "From clipboard" section of the "New step" dialog.
 
 ![Press ctrl+V while in the "Clipboard" section of the "New step" dialog](images/PowerAutomate_Clipboard.png)
 
 ## Initialize strErrorDetails
-[Link to code](https://github.com/OliverR-82/PowerAutomate/blob/main/Initialize%20strErrorDetails)
+[Link to JSON](https://github.com/OliverR-82/PowerAutomate/blob/main/Initialize%20strErrorDetails)
 
 This action initializes a string variable with the name "strErrorDetails". This is used in the ["On fail" scope](https://github.com/OliverR-82/PowerAutomate/blob/main/Scope%20On%20Fail).
 
 ## Scope On Fail
-[Link to code](https://github.com/OliverR-82/PowerAutomate/blob/main/Scope%20On%20Fail)
+[Link to JSON](https://github.com/OliverR-82/PowerAutomate/blob/main/Scope%20On%20Fail)
 
 This scope is useful for sending error notifications. It captures error information and sends it in an e-mail with a direct link to the run history. **Note that this does not do any error _handling_, it just sends you an immediate notification with useful information.**
 
