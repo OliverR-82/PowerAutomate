@@ -29,8 +29,8 @@ union(result('First_scope'),result('Second_scope'),result('Another_scope'))
 union(result('Main_scope'),result('Condition_in_main_scope'),result('Apply_to_each_in_main_scope'))
 ```
 * Errors aren't always returned in the exact same structure in Power Automate. This scope uses the coalesce() function to get the error *message* if it exists, and the error *code* if it does not. More precisely it attempts to get the error *message* from the following structures:
-- item()?['error']?['message'
-- item()?['outputs']?['body']?['message']
-- item()?['outputs']?['body']?['error']?['message']
+  - item()?['error']?['message'
+  - item()?['outputs']?['body']?['message']
+  - item()?['outputs']?['body']?['error']?['message']
 If none of the above properties exist, then it will just use item()['code'].
 * The "Notify of flow failure" action (which sends out the e-mail) has the "Run after" configured to run **always**. This is to ensure that even if the preceding actions - the ones that filter the results and collect the error information - fail, that an e-mail will _still_ be sent out. The e-mail may then not contain (all) the error information, but it will still contain a direct link to the run history.
