@@ -38,7 +38,7 @@
                   "type":"AppendToStringVariable",
                   "inputs":{
                      "name":"strErrorDetails",
-                     "value":"<p>Action: @{item()['name']}<br>\nStatus: @{item()['status']}<br>\nError: @{coalesce(item()?['error']?['message'], item()['code'])}<br></p>"
+                     "value":"<p>Action: @{item()['name']}<br>\nStatus: @{item()['status']}<br>\nError: @{coalesce(item()?['error']?['message'], item()?['outputs']?['body']?['message'], item()?['outputs']?['body']?['error']?['message'], item()['code'])}<br></p>"
                   },
                   "runAfter":{
                      
