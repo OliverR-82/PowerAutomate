@@ -16,14 +16,14 @@ This action initializes a string variable with the name "strErrorDetails". This 
 ## Scope On Fail
 [Link to JSON](https://github.com/OliverR-82/PowerAutomate/blob/main/Scope%20On%20Fail)
 
-This scope is useful for sending error notifications. It captures error information and sends it in an e-mail with a direct link to the run history. **Note that this does not do any error _handling_, it just sends you an immediate notification with useful information.**
+This scope is useful for sending error notifications. It captures error information and sends it in an e-mail with a direct link to the run history. **Note that this does not do any error _handling_, it just sends you an immediate notification with useful information.** It is meant to be used at the very end of a flow.
 
 **Some things to point out:**
-* It assumes that you have a scope called "Main" before it where all your logic happens. If the preceding scope has a different name, you should modify the expression used in the "From" property of the "Filter errors" action to include your scope name. Note that any spaces in your scope's name should be replaced with underscores.
+* It assumes that you have a scope called "Main" before it where all the "main" logic of your flow happens. If the preceding scope has a different name, you should modify the expression used in the "From" property of the "Filter errors" action to include your scope name. Note that any spaces in your scope's name should be replaced with underscores.
 ```
 result('Main')
 ```
-* The "Run after" settings of the scope should be set to "has failed" and "has timed out". 
+* The "Run after" settings of this "On Fail" scope should be set to "has failed" and "has timed out". These settings are not included in this JSON snippet, so you have to set that manually.
 * If you're using *multiple* scopes before this one, the "Run after" settings should also include "is skipped".
 * Also if you're using multiple scopes before this one, you should modify the expression in the "From" property of the "Filter errors" action to include the other scopes. You can do this using the union() expression.
 ```
