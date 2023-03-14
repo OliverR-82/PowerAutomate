@@ -3,6 +3,11 @@ This repository contains snippets of code (sorry, JSON) that I use frequently in
 
 ![Press ctrl+V while in the "Clipboard" section of the "New step" dialog](images/PowerAutomate_Clipboard.png)
 
+## GenerateRandomString.zip
+[Link to .zip file](https://github.com/OliverR-82/PowerAutomate/blob/main/GenerateRandomString.zip)
+
+This is an export of a very simple flow that generates a string of random characters, numbers and symbols. You can pass the desired length of the string as a parameter.
+
 ## Initialize strErrorDetails
 [Link to JSON](https://github.com/OliverR-82/PowerAutomate/blob/main/Initialize%20strErrorDetails)
 
