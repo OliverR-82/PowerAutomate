@@ -1,15 +1,10 @@
 {
-   "id":"1666999f-083d-4d3d-96ef-d0006d5509de",
+   "id":"676cbf5e-e83a-4aba-a84f-532b54c7d626",
    "brandColor":"#8C3900",
    "connectionReferences":{
-      "shared_sharepointonline":{
+      "shared_office365_1":{
          "connection":{
-            "id":"/providers/Microsoft.PowerApps/apis/shared_sharepointonline/connections/a3df40ff6d8b43c4a40869f0868eb56b"
-         }
-      },
-      "shared_office365":{
-         "connection":{
-            "id":"/providers/Microsoft.PowerApps/apis/shared_office365/connections/bb700f260af043ac87350ee663bef285"
+            "id":"/providers/Microsoft.PowerApps/apis/shared_office365/connections/shared-office365-1c81a12c-ef52-4715-b87d-f179-d22b3adf"
          }
       }
    },
@@ -28,6 +23,9 @@
             },
             "runAfter":{
                
+            },
+            "metadata":{
+               "operationMetadataId":"c6b34a59-1685-4632-a086-420e3ccd345c"
             }
          },
          "For_each_error":{
@@ -42,6 +40,9 @@
                   },
                   "runAfter":{
                      
+                  },
+                  "metadata":{
+                     "operationMetadataId":"f5caa7d6-ea04-497e-ab5f-30d6cd2a2ab2"
                   }
                }
             },
@@ -49,20 +50,23 @@
                "Filter_errors":[
                   "Succeeded"
                ]
+            },
+            "metadata":{
+               "operationMetadataId":"fb51314d-e32b-44de-98ab-ccb22fca8e26"
             }
          },
          "Notify_of_flow_failure":{
             "type":"OpenApiConnection",
             "inputs":{
                "host":{
-                  "connectionName":"shared_office365",
+                  "connectionName":"shared_office365_1",
                   "operationId":"SendEmailV2",
                   "apiId":"/providers/Microsoft.PowerApps/apis/shared_office365"
                },
                "parameters":{
-                  "emailMessage/To":"e@mail.com",
+                  "emailMessage/To":"oliverr@oroedev.onmicrosoft.com",
                   "emailMessage/Subject":"Flow @{workflow()?['tags']['flowDisplayName']} failed",
-                  "emailMessage/Body":"@{variables('strErrorDetails')}\n<p><a href=\"@{concat('https://flow.microsoft.com/manage/environments/', workflow()?['tags']['environmentName'], '/flows/', workflow()?['name'], '/runs/', workflow()?['run']['name'])}\">View run history</a></p>",
+                  "emailMessage/Body":"<p><strong>Flow start time:</strong> @{formatDateTime(convertFromUtc(trigger()['startTime'],'Romance Standard Time'),'dd/MM/yyyy HH:mm:ss')}</p>\n@{variables('strErrorDetails')}\n<p><a href=\"@{concat('https://flow.microsoft.com/manage/environments/', workflow()?['tags']['environmentName'], '/flows/', workflow()?['name'], '/runs/', workflow()?['run']['name'])}\">View run history</a></p>",
                   "emailMessage/Importance":"Normal"
                },
                "authentication":{
@@ -77,9 +81,15 @@
                   "Skipped",
                   "TimedOut"
                ]
+            },
+            "metadata":{
+               "operationMetadataId":"b680647f-6eb4-434d-a169-b55e559f8fd2"
             }
          },
          "Terminate":{
+            "metadata":{
+               "operationMetadataId":"e48901d0-e7e9-4925-ad73-8f439df5ac48"
+            },
             "type":"Terminate",
             "inputs":{
                "runStatus":"Failed"
@@ -92,10 +102,12 @@
          }
       },
       "runAfter":{
-         "Scope":[
-            "Failed",
-            "TimedOut"
+         "Main":[
+            "Succeeded"
          ]
+      },
+      "metadata":{
+         "operationMetadataId":"08f2a724-79b9-4f83-874b-04c3ce7c3efd"
       }
    }
 }
