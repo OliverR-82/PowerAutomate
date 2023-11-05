@@ -1,5 +1,5 @@
 {
-   "id":"676cbf5e-e83a-4aba-a84f-532b54c7d626",
+   "id":"23d0e255-aeaa-4793-958a-5ffeadb8e618",
    "brandColor":"#8C3900",
    "connectionReferences":{
       "shared_office365_1":{
@@ -64,7 +64,7 @@
                   "apiId":"/providers/Microsoft.PowerApps/apis/shared_office365"
                },
                "parameters":{
-                  "emailMessage/To":"oliverr@oroedev.onmicrosoft.com",
+                  "emailMessage/To":"e@mail.com",
                   "emailMessage/Subject":"Flow @{workflow()?['tags']['flowDisplayName']} failed",
                   "emailMessage/Body":"<p><strong>Flow start time:</strong> @{formatDateTime(convertFromUtc(trigger()['startTime'],'Romance Standard Time'),'dd/MM/yyyy HH:mm:ss')}</p>\n@{variables('strErrorDetails')}\n<p><a href=\"@{concat('https://flow.microsoft.com/manage/environments/', workflow()?['tags']['environmentName'], '/flows/', workflow()?['name'], '/runs/', workflow()?['run']['name'])}\">View run history</a></p>",
                   "emailMessage/Importance":"Normal"
